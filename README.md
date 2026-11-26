@@ -37,6 +37,8 @@ ZCode 3.18 stores tokens plus a **key location** (`project-key-location:v1:`), n
 
 The credential-decryption modules in `lib/` are vendored from [zcode-sync](https://github.com/netcaty/zcode-sync), so the package is self-contained and does not need that checkout at runtime.
 
+On Windows the OS keyring is reached through `lib/credential-manager.ps1`, a PowerShell bridge that calls Windows Credential Manager (`advapi32` `CredReadW`/`CredWriteW`/`CredDeleteW`) with one JSON request on stdin and one JSON answer on stdout. `lib/keyring.cjs` spawns it per operation; the credential blob is passed between them as base64 and never logged.
+
 ## Security
 
 - The JSON token file is **plain text** with full access/refresh tokens. Transfer it only over trusted channels and delete it after importing. Use the encrypted `.zcs` bundle ([`zcode-sync export`](https://github.com/netcaty/zcode-sync)) when a passphrase is needed.

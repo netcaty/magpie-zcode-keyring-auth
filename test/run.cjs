@@ -6,7 +6,7 @@
 const { spawnSync } = require('child_process');
 const path = require('path');
 
-const TESTS = ['keyring-state.cjs', 'plugin.cjs', 'upstream-integration.cjs'];
+const TESTS = ['keyring-state.cjs', 'plugin.cjs', 'credential-manager.cjs', 'upstream-integration.cjs'];
 
 const results = [];
 for (const testFile of TESTS) {

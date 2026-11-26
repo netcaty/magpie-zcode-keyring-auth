@@ -1,6 +1,6 @@
 {
   "name": "magpie-zcode-keyring-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ZCode provider for magpie/OpenCode: sign in with the local ZCode 3.18 keyring or import a JSON token file on machines without ZCode installed.",
   "type": "module",
   "main": "./index.mjs",
